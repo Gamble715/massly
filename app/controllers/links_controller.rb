@@ -9,7 +9,7 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(link_params)
-    @link.slug = ["agilispeed", "awesomeness", "freesponsibility", "teamswork", "transopency"].sample
+    @link.slug = Slug.first
 
     respond_to do |format|
       if @link.save

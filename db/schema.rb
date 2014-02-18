@@ -11,14 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140218151914) do
+ActiveRecord::Schema.define(version: 20140218182458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "links", force: true do |t|
     t.string   "url"
-    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "slug_id"
+  end
+
+  add_index "links", ["slug_id"], name: "index_links_on_slug_id", using: :btree
+
+  create_table "slugs", force: true do |t|
+    t.string   "word"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

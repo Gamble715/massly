@@ -1,6 +1,5 @@
 class Link < ActiveRecord::Base
-  validates :slug, uniqueness: true
-
+  has_one :slug
 
 
   def slugify
