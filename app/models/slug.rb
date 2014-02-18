@@ -1,5 +1,5 @@
 class Slug < ActiveRecord::Base
   validates :word, uniqueness: true
 
-  belongs_to :link
+  has_one :link, :foreign_key => 'slug_id'
 end

@@ -1,8 +1,5 @@
 class Link < ActiveRecord::Base
-  has_one :slug
+  belongs_to :slug, :foreign_key => 'slug_id'
 
 
-  def slugify
-    slug = ["agilispeed", "awesomeness", "freesponsibility", "teamswork", "transopency"].sample
-  end
 end

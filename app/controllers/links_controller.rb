@@ -9,7 +9,7 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(link_params)
-    @link.slug = Slug.first
+    @link.slug = Slug.find(2)
 
     respond_to do |format|
       if @link.save
@@ -28,6 +28,6 @@ class LinksController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:url, :slug)
+    params.require(:link).permit(:url, :slug_id, :link_id)
   end
 end
