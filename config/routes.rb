@@ -1,6 +1,8 @@
 Massly::Application.routes.draw do
   root "links#new"
   resources :links
+
+  get ':slug' => 'links#go'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

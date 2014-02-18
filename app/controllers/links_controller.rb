@@ -21,12 +21,13 @@ class LinksController < ApplicationController
   end
 
   def go
-
+    link = Link.find_by_slug(params[:slug])
+    redirect_to link.url
   end
 
   private
 
   def link_params
-    params.require(:link).permit(:url, :age)
+    params.require(:link).permit(:url, :slug)
   end
 end
